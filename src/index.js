@@ -1,11 +1,12 @@
 import Fastify from 'fastify'
+
+import usersRoutes from './routes/users.js'
+
 const fastify = Fastify({
   logger: true
 })
 
-fastify.get('/', async (request, reply) => {
-  return { hello: 'world' }
-})
+fastify.register(usersRoutes, {prefix: '/users'})
 
 /**
  * Run the server!
