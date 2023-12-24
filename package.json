@@ -1,7 +1,7 @@
 {
   "name": "y",
   "version": "0.1.0",
-  "description": "Playtomic-clone app back-end",
+  "description": "Playtomic clone - back end server",
   "main": "src/index.js",
   "type": "module",
   "private": true,
