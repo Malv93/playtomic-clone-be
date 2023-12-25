@@ -1,6 +1,6 @@
-import mockedUsers from '../../mocks/users.json' assert { type: 'json' };
+const mockedUsers = require('../../mocks/users.json');
 
-export default async function (fastify) {
+const userRoutes = async function (fastify) {
   fastify.get('/', async (req, res) => {
     res.send(mockedUsers);
   });
@@ -14,3 +14,5 @@ export default async function (fastify) {
     res.send(user);
   });
 }
+
+module.exports = userRoutes

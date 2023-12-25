@@ -1,6 +1,6 @@
-import Fastify from 'fastify';
+const Fastify = require('fastify');
 
-import usersRoutes from './routes/users.js';
+const usersRoutes = require('./routes/users.js');
 
 const fastify = Fastify({
   logger: true,
@@ -8,15 +8,17 @@ const fastify = Fastify({
 
 fastify.register(usersRoutes, { prefix: '/users' });
 
-/**
- * Run the server!
- */
-const start = async () => {
+const startServer = async () => {
   try {
     await fastify.listen({ port: 3000 });
   } catch (err) {
     fastify.log.error(err);
     process.exit(1);
   }
+
+  return fastify;
 };
-start();
+
+startServer();
+
+module.exports = startServer;
